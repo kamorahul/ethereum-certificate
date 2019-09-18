@@ -11,7 +11,7 @@
     "test-linux": "truffle test test/certification-web3.js && mocha test/*.test.js",
     "test-server": "mocha test/*.test.js",
     "test": "npm run test-windows || npm run test-linux",
-    "contract-deploy": "truffle.cmd migrate --reset || truffle migrate --reset",
+    "contract-deploy": "truffle migrate --reset",
     "deploy": "truffle.cmd migrate -f 2 --network rinkeby || truffle migrate -f 2 --network rinkeby",
     "ganache": "ganache-cli -p 8545 &",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
@@ -33,11 +33,14 @@
     "supertest": "^3.3.0"
   },
   "dependencies": {
+    "ag-grid-community": "^21.2.1",
+    "ag-grid-react": "^21.2.1",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.2",
     "chalk": "^2.4.1",
     "css-loader": "^0.26.1",
     "dotenv": "^6.2.0",
+    "ethereumjs-abi": "^0.6.8",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.0",

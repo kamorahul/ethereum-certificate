@@ -23,6 +23,13 @@ export const getCertificate = certificateId =>
       console.log(err);
     });
 
+export const getCertificates  = () =>
+  fetch(`${host}/certificate/data`, getHeader)
+    .then(res => res.json())
+    .catch(err => {
+      console.log(err);
+    });
+
 export const verifyCertificate = certificateId =>
   fetch(`${host}/certificate/verify/${certificateId}`, getHeader)
     .then(res => {

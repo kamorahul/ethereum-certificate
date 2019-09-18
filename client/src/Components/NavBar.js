@@ -131,6 +131,9 @@ class NavBar extends React.Component {
         <MenuItem component={Link} to="/display/certificate">
           Dashboard
         </MenuItem>
+        <MenuItem component={Link} to="/certificates">
+          Certificates
+        </MenuItem>
         <MenuItem component={Link} to="/login">
           Login
         </MenuItem>

@@ -16,7 +16,10 @@ module.exports = {
     development: {
       host: process.env.LOCAL_ENDPOINT.split(":")[1].slice(2),
       port: process.env.LOCAL_ENDPOINT.split(":")[2],
-      network_id: process.env.NETWORK_ID
+      network_id: process.env.NETWORK_ID,
+      gasPrice: 0,
+      gas: 4500000,
+      type: "quorum"
     }
   }
 };

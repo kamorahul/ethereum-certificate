@@ -37,6 +37,17 @@ app.get("/certificate/data/:id", (req, res) => {
     .catch(err => res.status(400).send({ err }));
 });
 
+app.get("/certificate/data", (req, res) => {
+  let certificateId = req.params.id;
+  Certificates.find()
+    .then(obj => {
+      if (obj === null)
+        res.status(400).send({ err: "Certificate data doesn't exist" });
+      else res.send(obj);
+    })
+    .catch(err => res.status(400).send({ err }));
+});
+
 app.get("/certificate/verify/:id", (req, res) => {
   let certificateId = req.params.id;
 
@@ -45,7 +56,9 @@ app.get("/certificate/verify/:id", (req, res) => {
       obj.verifyData().then(verified => {
         if (verified) res.status(200).send();
         else res.status(401).send();
-      });
+      }).catch(err =>
+          res.status(400).send({ err: "No data found for the given certificateId" })
+      );
     })
     .catch(err =>
       res.status(400).send({ err: "No data found for the given certificateId" })
