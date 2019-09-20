@@ -54,7 +54,7 @@ app.get("/certificate/verify/:id", (req, res) => {
   Certificates.findById(certificateId)
     .then(obj => {
       obj.verifyData().then(verified => {
-        if (verified) res.status(200).send();
+        if (verified) res.status(200).send({"status" : "Ok"});
         else res.status(401).send();
       }).catch(err =>
           res.status(400).send({ err: "No data found for the given certificateId" })
@@ -115,7 +115,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
   log.Info(

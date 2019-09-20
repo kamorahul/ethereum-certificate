@@ -192,7 +192,7 @@ class NavBar extends React.Component {
               color="inherit"
               noWrap
             >
-              CertifyBlock
+              OpenBlocks
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
